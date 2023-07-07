@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bqkqx83uhy1tm"]
 
-[ext_resource type="Script" path="res://scenes/exit_dialog.gd" id="1_ukwjd"]
+[ext_resource type="Script" path="res://scenes/custom_dialog.gd" id="1_c68wv"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_x0owk"]
 
@@ -19,7 +19,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.741176)
-script = ExtResource("1_ukwjd")
+script = ExtResource("1_c68wv")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
