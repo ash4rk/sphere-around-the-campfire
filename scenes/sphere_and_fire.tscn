@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://bllbepjpxmjuo"]
+
+[ext_resource type="PackedScene" uid="uid://dwvwl8uyu18am" path="res://scenes/fire.tscn" id="1_gosva"]
+[ext_resource type="Texture2D" uid="uid://b8qmbandcxqsc" path="res://assets/equitangular_stars_sky.png" id="2_0i614"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_miy3e"]
+panorama = ExtResource("2_0i614")
+
+[sub_resource type="Sky" id="Sky_x0rbg"]
+sky_material = SubResource("PanoramaSkyMaterial_miy3e")
+
+[sub_resource type="Environment" id="Environment_vpxjb"]
+background_mode = 2
+sky = SubResource("Sky_x0rbg")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mqk0i"]
+size = Vector2(100, 100)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_303v5"]
+albedo_color = Color(0.4, 0.4, 0.4, 1)
+
+[node name="World" type="Node"]
+
+[node name="Fire" parent="." instance=ExtResource("1_gosva")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.318886, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_vpxjb")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.79841, 0)
+sky_mode = 2
+
+[node name="Floor" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0482047, 0)
+mesh = SubResource("PlaneMesh_mqk0i")
+material = SubResource("StandardMaterial3D_303v5")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.791224, 0.611527, 0, -0.611527, 0.791224, 0, 4, 5.5)
+fov = 100.0

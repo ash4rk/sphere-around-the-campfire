@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/exit_button.gd" id="1_wtym7"]
 [ext_resource type="Script" path="res://scenes/shuffle_button.gd" id="2_677ww"]
 [ext_resource type="Script" path="res://scenes/change_scene_button.gd" id="2_iaymu"]
-[ext_resource type="PackedScene" uid="uid://xpv8t4jmwsdu" path="res://scenes/sphere_and_fire.tscn" id="3_ei0tb"]
+[ext_resource type="PackedScene" uid="uid://bllbepjpxmjuo" path="res://scenes/sphere_and_fire.tscn" id="3_ei0tb"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
