@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bn8flcsoje6e6"]
+[gd_scene load_steps=3 format=3 uid="uid://bn8flcsoje6e6"]
 
 [ext_resource type="Script" path="res://scenes/exit_button.gd" id="1_wtym7"]
+[ext_resource type="Script" path="res://scenes/shuffle_button.gd" id="2_677ww"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -45,6 +46,7 @@ custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 text = "№3
 Shuffle"
+script = ExtResource("2_677ww")
 
 [node name="UIEffectButton" type="Button" parent="GridContainer"]
 custom_minimum_size = Vector2(200, 200)
@@ -53,3 +55,4 @@ text = "№2
 UI Effect"
 
 [connection signal="pressed" from="GridContainer/ExitButton" to="GridContainer/ExitButton" method="_on_pressed"]
+[connection signal="pressed" from="GridContainer/ShuffleButton" to="GridContainer/ShuffleButton" method="_on_pressed"]
