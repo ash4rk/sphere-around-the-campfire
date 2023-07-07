@@ -4,6 +4,7 @@ extends Button
 
 func _on_pressed():
 	var exit_instance: CustomDialog = DIALOG_SCENE.instantiate()
+	exit_instance.text = "Exit?"
 	get_tree().root.add_child(exit_instance)
 	exit_instance.yes_button_pressed.connect(quit)
 	
