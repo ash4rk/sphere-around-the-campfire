@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bllbepjpxmjuo"]
+[gd_scene load_steps=12 format=3 uid="uid://bllbepjpxmjuo"]
 
 [ext_resource type="PackedScene" uid="uid://dwvwl8uyu18am" path="res://scenes/fire.tscn" id="1_gosva"]
 [ext_resource type="Texture2D" uid="uid://b8qmbandcxqsc" path="res://assets/equitangular_stars_sky.png" id="2_0i614"]
 [ext_resource type="PackedScene" uid="uid://ccbd05vygv0nb" path="res://scenes/sphere.tscn" id="3_m4p52"]
 [ext_resource type="Script" path="res://scenes/level_ui.gd" id="4_4u6iv"]
+[ext_resource type="Theme" uid="uid://cqx7a2for4r1c" path="res://assets/theme.tres" id="4_h3ydh"]
+[ext_resource type="Script" path="res://scenes/menu/change_scene_button.gd" id="6_mgdxu"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_miy3e"]
 panorama = ExtResource("2_0i614")
@@ -53,7 +55,6 @@ target_node = NodePath("../Fire")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.791224, 0.611527, 0, -0.611527, 0.791224, 0, 4, 5.5)
-fov = 100.0
 
 [node name="UILayer" type="CanvasLayer" parent="."]
 
@@ -64,6 +65,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("4_h3ydh")
 script = ExtResource("4_4u6iv")
 sphere = NodePath("../../Sphere")
 
@@ -115,5 +117,22 @@ custom_minimum_size = Vector2(24, 0)
 layout_mode = 2
 text = "0.0"
 
+[node name="ExitButton" type="Button" parent="UILayer/UI"]
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -91.0
+offset_top = 25.0
+offset_right = -25.0
+offset_bottom = 78.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 32
+text = "Exit"
+script = ExtResource("6_mgdxu")
+SCENE_TO_CHANGE = 0
+
 [connection signal="value_changed" from="UILayer/UI/VBoxContainer/SpeedContainer/SpeedHSlider" to="UILayer/UI" method="_on_speed_h_slider_value_changed"]
 [connection signal="value_changed" from="UILayer/UI/VBoxContainer/RadiusContainer/RadiusHSlider" to="UILayer/UI" method="_on_radius_h_slider_value_changed"]
+[connection signal="pressed" from="UILayer/UI/ExitButton" to="UILayer/UI/ExitButton" method="_on_pressed"]
