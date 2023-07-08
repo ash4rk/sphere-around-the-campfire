@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bllbepjpxmjuo"]
+[gd_scene load_steps=9 format=3 uid="uid://bllbepjpxmjuo"]
 
 [ext_resource type="PackedScene" uid="uid://dwvwl8uyu18am" path="res://scenes/fire.tscn" id="1_gosva"]
 [ext_resource type="Texture2D" uid="uid://b8qmbandcxqsc" path="res://assets/equitangular_stars_sky.png" id="2_0i614"]
+[ext_resource type="PackedScene" uid="uid://ccbd05vygv0nb" path="res://scenes/sphere.tscn" id="3_m4p52"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_miy3e"]
 panorama = ExtResource("2_0i614")
@@ -12,6 +13,15 @@ sky_material = SubResource("PanoramaSkyMaterial_miy3e")
 [sub_resource type="Environment" id="Environment_vpxjb"]
 background_mode = 2
 sky = SubResource("Sky_x0rbg")
+ssil_radius = 0.98
+ssil_intensity = 5.78
+glow_enabled = true
+glow_levels/3 = 0.8
+glow_levels/4 = 0.5
+glow_levels/5 = 0.0
+glow_intensity = 0.13
+glow_strength = 0.93
+glow_blend_mode = 0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_mqk0i"]
 size = Vector2(100, 100)
@@ -21,9 +31,6 @@ albedo_color = Color(0.4, 0.4, 0.4, 1)
 
 [node name="World" type="Node"]
 
-[node name="Fire" parent="." instance=ExtResource("1_gosva")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.318886, 0)
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_vpxjb")
 
@@ -31,10 +38,18 @@ environment = SubResource("Environment_vpxjb")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.79841, 0)
 sky_mode = 2
 
+[node name="Fire" parent="." instance=ExtResource("1_gosva")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.318886, 0)
+
 [node name="Floor" type="CSGMesh3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0482047, 0)
 mesh = SubResource("PlaneMesh_mqk0i")
 material = SubResource("StandardMaterial3D_303v5")
+
+[node name="Sphere" parent="." node_paths=PackedStringArray("target_node") instance=ExtResource("3_m4p52")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.91647, 5.15282)
+target_node = NodePath("../Fire")
+rotation_speed = 8.0
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.791224, 0.611527, 0, -0.611527, 0.791224, 0, 4, 5.5)

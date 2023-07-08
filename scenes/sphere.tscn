@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://ccbd05vygv0nb"]
+
+[ext_resource type="Script" path="res://scenes/sphere.gd" id="1_twwus"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j8xgb"]
+emission_enabled = true
+emission = Color(0, 0, 3, 1)
+emission_energy_multiplier = 6.0
+
+[sub_resource type="Curve" id="Curve_ppgx8"]
+_data = [Vector2(0, 0.881818), 0.0, 0.0, 0, 0, Vector2(1, 0.0545454), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_nri34"]
+curve = SubResource("Curve_ppgx8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_uc2ci"]
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_nri34")
+
+[sub_resource type="SphereMesh" id="SphereMesh_c1acb"]
+
+[node name="Sphere" type="CSGSphere3D"]
+material_override = SubResource("StandardMaterial3D_j8xgb")
+radial_segments = 24
+rings = 24
+script = ExtResource("1_twwus")
+
+[node name="Trail" type="GPUParticles3D" parent="."]
+material_override = SubResource("StandardMaterial3D_j8xgb")
+amount = 24
+lifetime = 0.7
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_uc2ci")
+draw_pass_1 = SubResource("SphereMesh_c1acb")
