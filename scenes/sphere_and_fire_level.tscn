@@ -1,0 +1,53 @@
+[gd_scene load_steps=10 format=3 uid="uid://b8islr4bmnmx3"]
+
+[ext_resource type="Texture2D" uid="uid://b8qmbandcxqsc" path="res://assets/equitangular_stars_sky.png" id="1_ba4mp"]
+[ext_resource type="PackedScene" uid="uid://dwvwl8uyu18am" path="res://scenes/fire.tscn" id="1_nitrb"]
+[ext_resource type="PackedScene" uid="uid://ccbd05vygv0nb" path="res://scenes/sphere.tscn" id="2_tce7g"]
+[ext_resource type="PackedScene" uid="uid://d2676vynk4ad0" path="res://scenes/ui_layer.tscn" id="4_1vl6y"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_fd77y"]
+panorama = ExtResource("1_ba4mp")
+
+[sub_resource type="Sky" id="Sky_enxuq"]
+sky_material = SubResource("PanoramaSkyMaterial_fd77y")
+
+[sub_resource type="Environment" id="Environment_x4bdu"]
+background_mode = 2
+sky = SubResource("Sky_enxuq")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mu4ia"]
+size = Vector2(100, 100)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oy7nn"]
+albedo_color = Color(0.4, 0.4, 0.4, 1)
+
+[node name="World" type="Node"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_x4bdu")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15028, 0)
+sky_mode = 2
+
+[node name="Fire" parent="." instance=ExtResource("1_nitrb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.319, 0)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+mesh = SubResource("PlaneMesh_mu4ia")
+material = SubResource("StandardMaterial3D_oy7nn")
+
+[node name="Sphere" parent="." node_paths=PackedStringArray("target_node") instance=ExtResource("2_tce7g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.916, 5.153)
+target_node = NodePath("../Fire")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.791224, 0.611527, 0, -0.611527, 0.791224, 0, 4, 5.5)
+current = true
+
+[node name="UILayer" parent="." instance=ExtResource("4_1vl6y")]
+
+[node name="UI" parent="UILayer" index="0" node_paths=PackedStringArray("sphere")]
+sphere = NodePath("../../Sphere")
+
+[editable path="UILayer"]

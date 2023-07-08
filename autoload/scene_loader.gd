@@ -4,7 +4,7 @@ enum LEVELS { MAIN_MENU, SPHERE_LEVEL, EMPTY_LEVEL }
 
 const LEVEL_SCENES = {
 	LEVELS.MAIN_MENU : preload("res://main.tscn"),
-	LEVELS.SPHERE_LEVEL : preload("res://scenes/sphere_and_fire.tscn"),
+	LEVELS.SPHERE_LEVEL : preload("res://scenes/sphere_and_fire_level.tscn"),
 	LEVELS.EMPTY_LEVEL : preload("res://scenes/empty.tscn"),
 }
 

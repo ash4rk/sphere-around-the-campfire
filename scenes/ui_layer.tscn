@@ -1,0 +1,85 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2676vynk4ad0"]
+
+[ext_resource type="Theme" uid="uid://cqx7a2for4r1c" path="res://assets/theme.tres" id="1_d2vii"]
+[ext_resource type="Script" path="res://scenes/level_ui.gd" id="2_5ub7k"]
+[ext_resource type="Script" path="res://scenes/menu/change_scene_button.gd" id="3_nkfew"]
+
+[node name="UILayer" type="CanvasLayer"]
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_d2vii")
+script = ExtResource("2_5ub7k")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI"]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 0
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 281.0
+offset_bottom = 281.0
+
+[node name="SpeedContainer" type="HBoxContainer" parent="UI/VBoxContainer"]
+layout_mode = 2
+
+[node name="SpeedLabel" type="Label" parent="UI/VBoxContainer/SpeedContainer"]
+layout_mode = 2
+text = "Speed"
+
+[node name="SpeedHSlider" type="HSlider" parent="UI/VBoxContainer/SpeedContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 10.0
+step = 0.1
+value = 1.0
+
+[node name="SpeedValueLabel" type="Label" parent="UI/VBoxContainer/SpeedContainer"]
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+text = "0.0"
+
+[node name="RadiusContainer" type="HBoxContainer" parent="UI/VBoxContainer"]
+layout_mode = 2
+
+[node name="RadiusLabel" type="Label" parent="UI/VBoxContainer/RadiusContainer"]
+layout_mode = 2
+text = "Radius"
+
+[node name="RadiusHSlider" type="HSlider" parent="UI/VBoxContainer/RadiusContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 6.0
+step = 0.1
+value = 5.0
+
+[node name="RadiusValueLabel" type="Label" parent="UI/VBoxContainer/RadiusContainer"]
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+text = "0.0"
+
+[node name="ExitButton" type="Button" parent="UI"]
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -91.0
+offset_top = 25.0
+offset_right = -25.0
+offset_bottom = 78.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 32
+text = "Назад"
+script = ExtResource("3_nkfew")
+SCENE_TO_CHANGE = 0
+
+[connection signal="value_changed" from="UI/VBoxContainer/SpeedContainer/SpeedHSlider" to="UI" method="_on_speed_h_slider_value_changed"]
+[connection signal="value_changed" from="UI/VBoxContainer/RadiusContainer/RadiusHSlider" to="UI" method="_on_radius_h_slider_value_changed"]
+[connection signal="pressed" from="UI/ExitButton" to="UI/ExitButton" method="_on_pressed"]
