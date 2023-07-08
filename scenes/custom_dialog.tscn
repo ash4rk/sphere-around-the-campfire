@@ -1,16 +1,79 @@
-[gd_scene load_steps=4 format=3 uid="uid://bqkqx83uhy1tm"]
+[gd_scene load_steps=9 format=3 uid="uid://bqkqx83uhy1tm"]
 
 [ext_resource type="Script" path="res://scenes/custom_dialog.gd" id="1_c68wv"]
+[ext_resource type="Theme" uid="uid://cqx7a2for4r1c" path="res://assets/theme.tres" id="2_4deg4"]
 
-[sub_resource type="ImageTexture" id="ImageTexture_x0owk"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w8ify"]
+bg_color = Color(0.0705882, 0.396078, 0.0862745, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.0196078, 0.188235, 0.0235294, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1ovve"]
-texture = SubResource("ImageTexture_x0owk")
-expand_margin_left = 16.0
-expand_margin_top = 16.0
-expand_margin_right = 16.0
-expand_margin_bottom = 16.0
-modulate_color = Color(0.345098, 0.690196, 0.607843, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c30xq"]
+bg_color = Color(0.129412, 0.658824, 0.160784, 0.564706)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.027451, 0.231373, 0.0352941, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3dfby"]
+bg_color = Color(0.0313726, 0.25098, 0.0431373, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.027451, 0.231373, 0.0352941, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_20iqo"]
+bg_color = Color(0.686275, 0, 0.0627451, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.427451, 0, 0.0235294, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yhh6g"]
+bg_color = Color(1, 0.133333, 0.160784, 0.47451)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.427451, 0, 0.0235294, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lc378"]
+bg_color = Color(0.145098, 0, 0.00392157, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.427451, 0, 0.0235294, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [node name="ExitDialog" type="ColorRect"]
 anchors_preset = 15
@@ -34,7 +97,7 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_1ovve")
+theme = ExtResource("2_4deg4")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 layout_mode = 2
@@ -54,14 +117,22 @@ theme_override_constants/separation = 24
 custom_minimum_size = Vector2(128, 64)
 layout_mode = 2
 size_flags_horizontal = 3
+focus_mode = 0
 theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxFlat_w8ify")
+theme_override_styles/hover = SubResource("StyleBoxFlat_c30xq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3dfby")
 text = "Yes"
 
 [node name="NoButton" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(128, 64)
 layout_mode = 2
 size_flags_horizontal = 3
+focus_mode = 0
 theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxFlat_20iqo")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yhh6g")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lc378")
 text = "No"
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/YesButton" to="." method="_on_yes_button_pressed"]

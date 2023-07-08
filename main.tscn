@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://bn8flcsoje6e6"]
+[gd_scene load_steps=22 format=3 uid="uid://bn8flcsoje6e6"]
 
 [ext_resource type="Shader" path="res://assets/main_bg.gdshader" id="1_ecbd2"]
 [ext_resource type="Script" path="res://scenes/exit_button.gd" id="1_wtym7"]
+[ext_resource type="Theme" uid="uid://cqx7a2for4r1c" path="res://assets/theme.tres" id="1_ye73f"]
 [ext_resource type="Script" path="res://scenes/shuffle_button.gd" id="2_677ww"]
 [ext_resource type="Script" path="res://scenes/change_scene_button.gd" id="2_iaymu"]
 [ext_resource type="PackedScene" uid="uid://bllbepjpxmjuo" path="res://scenes/sphere_and_fire.tscn" id="3_ei0tb"]
@@ -13,6 +14,114 @@
 shader = ExtResource("1_ecbd2")
 shader_parameter/cells_colour = Color(1, 1, 1, 1)
 shader_parameter/lines_colour = Color(0.137255, 0.164706, 0.282353, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5wh5u"]
+bg_color = Color(0.537255, 0.0745098, 0.282353, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.301961, 0.0235294, 0.14902, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_renkg"]
+bg_color = Color(0.537255, 0.0745098, 0.282353, 0.47451)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.301961, 0.0235294, 0.14902, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t6c1t"]
+bg_color = Color(0.235294, 0.0156863, 0.109804, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.301961, 0.0235294, 0.14902, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t2fjm"]
+bg_color = Color(0.117647, 0.290196, 0.619608, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.027451, 0.113725, 0.278431, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_psfsj"]
+bg_color = Color(0.117647, 0.290196, 0.619608, 0.509804)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.027451, 0.113725, 0.278431, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nrehf"]
+bg_color = Color(0.054902, 0.164706, 0.380392, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.027451, 0.113725, 0.278431, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f7x3q"]
+bg_color = Color(0.179643, 0.49407, 0.141306, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.0470588, 0.180392, 0.0313726, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4sit2"]
+bg_color = Color(0.180392, 0.494118, 0.141176, 0.47451)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.0470588, 0.180392, 0.0313726, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ch17"]
+bg_color = Color(0.0627451, 0.215686, 0.0431373, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.0470588, 0.180392, 0.0313726, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5cyg6"]
 shader = ExtResource("5_m1gtu")
@@ -35,6 +144,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_ye73f")
 
 [node name="BG" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_diabo")
@@ -68,6 +178,8 @@ columns = 2
 [node name="ExitButton" type="Button" parent="GridContainer"]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 24
 text = "№4
 Exit"
 script = ExtResource("1_wtym7")
@@ -75,6 +187,11 @@ script = ExtResource("1_wtym7")
 [node name="ChangeSceneButton" type="Button" parent="GridContainer"]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_5wh5u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_renkg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_t6c1t")
 text = "№1
 Change Scene"
 script = ExtResource("2_iaymu")
@@ -83,6 +200,11 @@ SCENE_TO_CHANGE = ExtResource("3_ei0tb")
 [node name="ShuffleButton" type="Button" parent="GridContainer"]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_t2fjm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_psfsj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nrehf")
 text = "№3
 Shuffle"
 script = ExtResource("2_677ww")
@@ -90,6 +212,11 @@ script = ExtResource("2_677ww")
 [node name="UIEffectButton" type="Button" parent="GridContainer" node_paths=PackedStringArray("glitch_effect")]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_f7x3q")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4sit2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7ch17")
 text = "№2
 UI Effect"
 script = ExtResource("5_j56rl")
