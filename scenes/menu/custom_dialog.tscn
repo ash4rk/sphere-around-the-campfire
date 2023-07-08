@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://bqkqx83uhy1tm"]
 
-[ext_resource type="Script" path="res://scenes/custom_dialog.gd" id="1_c68wv"]
+[ext_resource type="Script" path="res://scenes/menu/custom_dialog.gd" id="1_c68wv"]
 [ext_resource type="Theme" uid="uid://cqx7a2for4r1c" path="res://assets/theme.tres" id="2_4deg4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w8ify"]

@@ -1,6 +1,6 @@
 extends Button
 
-@onready var DIALOG_SCENE = preload("res://scenes/custom_dialog.tscn")
+@onready var DIALOG_SCENE = preload("res://scenes/menu/custom_dialog.tscn")
 
 func _on_pressed():
 	var exit_instance: CustomDialog = DIALOG_SCENE.instantiate()

@@ -1,12 +1,12 @@
 [gd_scene load_steps=22 format=3 uid="uid://bn8flcsoje6e6"]
 
 [ext_resource type="Shader" path="res://assets/main_bg.gdshader" id="1_ecbd2"]
-[ext_resource type="Script" path="res://scenes/exit_button.gd" id="1_wtym7"]
+[ext_resource type="Script" path="res://scenes/menu/exit_button.gd" id="1_wtym7"]
 [ext_resource type="Theme" uid="uid://cqx7a2for4r1c" path="res://assets/theme.tres" id="1_ye73f"]
-[ext_resource type="Script" path="res://scenes/shuffle_button.gd" id="2_677ww"]
-[ext_resource type="Script" path="res://scenes/change_scene_button.gd" id="2_iaymu"]
+[ext_resource type="Script" path="res://scenes/menu/shuffle_button.gd" id="2_677ww"]
+[ext_resource type="Script" path="res://scenes/menu/change_scene_button.gd" id="2_iaymu"]
 [ext_resource type="PackedScene" uid="uid://bllbepjpxmjuo" path="res://scenes/sphere_and_fire.tscn" id="3_ei0tb"]
-[ext_resource type="Script" path="res://scenes/ui_effect_button.gd" id="5_j56rl"]
+[ext_resource type="Script" path="res://scenes/menu/ui_effect_button.gd" id="5_j56rl"]
 [ext_resource type="Shader" path="res://scenes/ui-effects/glitch.gdshader" id="5_m1gtu"]
 [ext_resource type="Script" path="res://scenes/ui-effects/glitch_effect.gd" id="6_j0upb"]
 
