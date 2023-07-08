@@ -1,6 +1,6 @@
 extends Control
 
-@export var sphere: RotationSphere
+@export var sphere: Node3D
 @onready var radius_value_label: Label = $VBoxContainer/RadiusContainer/RadiusValueLabel
 @onready var speed_value_label: Label = $VBoxContainer/SpeedContainer/SpeedValueLabel
 

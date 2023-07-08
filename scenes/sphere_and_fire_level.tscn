@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b8qmbandcxqsc" path="res://assets/equitangular_stars_sky.png" id="1_ba4mp"]
 [ext_resource type="PackedScene" uid="uid://dwvwl8uyu18am" path="res://scenes/fire.tscn" id="1_nitrb"]
-[ext_resource type="PackedScene" uid="uid://ccbd05vygv0nb" path="res://scenes/sphere.tscn" id="2_tce7g"]
+[ext_resource type="PackedScene" uid="uid://0lims5itmdoa" path="res://scenes/sphere.tscn" id="2_tce7g"]
 [ext_resource type="PackedScene" uid="uid://d2676vynk4ad0" path="res://scenes/ui_layer.tscn" id="4_1vl6y"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_fd77y"]
