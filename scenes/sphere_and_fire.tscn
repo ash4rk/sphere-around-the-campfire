@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bllbepjpxmjuo"]
+[gd_scene load_steps=10 format=3 uid="uid://bllbepjpxmjuo"]
 
 [ext_resource type="PackedScene" uid="uid://dwvwl8uyu18am" path="res://scenes/fire.tscn" id="1_gosva"]
 [ext_resource type="Texture2D" uid="uid://b8qmbandcxqsc" path="res://assets/equitangular_stars_sky.png" id="2_0i614"]
 [ext_resource type="PackedScene" uid="uid://ccbd05vygv0nb" path="res://scenes/sphere.tscn" id="3_m4p52"]
+[ext_resource type="Script" path="res://scenes/level_ui.gd" id="4_4u6iv"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_miy3e"]
 panorama = ExtResource("2_0i614")
@@ -49,8 +50,60 @@ material = SubResource("StandardMaterial3D_303v5")
 [node name="Sphere" parent="." node_paths=PackedStringArray("target_node") instance=ExtResource("3_m4p52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.91647, 5.15282)
 target_node = NodePath("../Fire")
-rotation_speed = 8.0
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.791224, 0.611527, 0, -0.611527, 0.791224, 0, 4, 5.5)
 fov = 100.0
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="UILayer" node_paths=PackedStringArray("sphere")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_4u6iv")
+sphere = NodePath("../../Sphere")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UILayer/UI"]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 0
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 281.0
+offset_bottom = 281.0
+
+[node name="SpeedContainer" type="HBoxContainer" parent="UILayer/UI/VBoxContainer"]
+layout_mode = 2
+
+[node name="SpeedLabel" type="Label" parent="UILayer/UI/VBoxContainer/SpeedContainer"]
+layout_mode = 2
+text = "Speed"
+
+[node name="SpeedHSlider" type="HSlider" parent="UILayer/UI/VBoxContainer/SpeedContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 10.0
+step = 0.1
+value = 1.0
+
+[node name="RadiusContainer" type="HBoxContainer" parent="UILayer/UI/VBoxContainer"]
+layout_mode = 2
+
+[node name="RadiusLabel" type="Label" parent="UILayer/UI/VBoxContainer/RadiusContainer"]
+layout_mode = 2
+text = "Radius"
+
+[node name="RadiusHSlider" type="HSlider" parent="UILayer/UI/VBoxContainer/RadiusContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 6.0
+step = 0.1
+value = 5.0
+
+[connection signal="value_changed" from="UILayer/UI/VBoxContainer/SpeedContainer/SpeedHSlider" to="UILayer/UI" method="_on_speed_h_slider_value_changed"]
+[connection signal="value_changed" from="UILayer/UI/VBoxContainer/RadiusContainer/RadiusHSlider" to="UILayer/UI" method="_on_radius_h_slider_value_changed"]
