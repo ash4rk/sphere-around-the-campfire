@@ -5,6 +5,9 @@ var SPARKLES_SCENE: PackedScene = preload("res://scenes/ui-effects/sparkles.tscn
 
 func _on_pressed():
 	glitch_effect._emit_glitch_effect()
+	_emit_sparkles_effect()
+
+func _emit_sparkles_effect():
 	var sparkles_instance = SPARKLES_SCENE.instantiate()
 	get_parent().add_child(sparkles_instance)
 	sparkles_instance.global_position = get_global_mouse_position()
