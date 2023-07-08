@@ -1,0 +1,94 @@
+[gd_scene load_steps=13 format=3 uid="uid://gpjj4jahw120"]
+
+[ext_resource type="Texture2D" uid="uid://mwk2ky30sixw" path="res://assets/spark.png" id="1_8lt4p"]
+[ext_resource type="Script" path="res://scenes/ui-effects/sparkles.gd" id="1_y1seh"]
+[ext_resource type="Texture2D" uid="uid://ciyhygg020pf6" path="res://assets/star_1.png" id="3_pv4k0"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_sw643"]
+blend_mode = 1
+light_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_necmj"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.479592, 1)
+colors = PackedColorArray(5, 5, 0, 1, 5, 5, 0.01, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_a0im1"]
+gradient = SubResource("Gradient_necmj")
+
+[sub_resource type="Curve" id="Curve_w5jtd"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.033954, 1), 0.0, 0.0, 0, 0, Vector2(0.6825, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_ervj3"]
+curve = SubResource("Curve_w5jtd")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hlufl"]
+emission_shape = 1
+emission_sphere_radius = 5.23
+particle_flag_disable_z = true
+spread = 180.0
+gravity = Vector3(0, 98, 0)
+initial_velocity_min = 80.0
+initial_velocity_max = 140.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+angle_min = -720.0
+angle_max = 720.0
+scale_min = 0.25
+scale_max = 0.25
+scale_curve = SubResource("CurveTexture_ervj3")
+color = Color(2, 2, 0, 1)
+color_ramp = SubResource("GradientTexture1D_a0im1")
+
+[sub_resource type="Curve" id="Curve_yulik"]
+_data = [Vector2(0.427163, 0), 0.0, 0.0, 0, 0, Vector2(0.468784, 1), 0.0, 0.0, 0, 0, Vector2(0.6825, 1), 0.0, 0.0, 0, 0, Vector2(0.897043, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_jgngg"]
+curve = SubResource("Curve_yulik")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kn830"]
+emission_shape = 3
+emission_box_extents = Vector3(128, 128, 1)
+particle_flag_disable_z = true
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+angle_min = -720.0
+angle_max = 720.0
+scale_min = 0.25
+scale_max = 0.25
+scale_curve = SubResource("CurveTexture_jgngg")
+color = Color(2, 2, 0, 1)
+color_ramp = SubResource("GradientTexture1D_a0im1")
+
+[node name="Sparkles" type="Node2D"]
+script = ExtResource("1_y1seh")
+
+[node name="BaseSparlkes" type="GPUParticles2D" parent="."]
+texture_filter = 1
+texture_repeat = 1
+material = SubResource("CanvasItemMaterial_sw643")
+emitting = false
+amount = 24
+process_material = SubResource("ParticleProcessMaterial_hlufl")
+texture = ExtResource("1_8lt4p")
+lifetime = 4.0
+one_shot = true
+speed_scale = 3.0
+explosiveness = 0.84
+
+[node name="FadingStars" type="GPUParticles2D" parent="."]
+texture_filter = 1
+texture_repeat = 1
+material = SubResource("CanvasItemMaterial_sw643")
+position = Vector2(0, 195)
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_kn830")
+texture = ExtResource("3_pv4k0")
+lifetime = 3.0
+one_shot = true
+speed_scale = 3.13
+explosiveness = 0.4
