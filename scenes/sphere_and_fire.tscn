@@ -129,7 +129,7 @@ offset_right = -25.0
 offset_bottom = 78.0
 grow_horizontal = 0
 theme_override_font_sizes/font_size = 32
-text = "Exit"
+text = "Назад"
 script = ExtResource("6_mgdxu")
 SCENE_TO_CHANGE = 0
 

@@ -7,9 +7,9 @@ extends Button
 func _on_pressed():
 	if is_dialog_need:
 		var exit_instance: CustomDialog = DIALOG_SCENE.instantiate()
-		exit_instance.text = "Change Scene?"
-		exit_instance.yes_button_text = "Change"
-		exit_instance.no_button_text = "Cancel"
+		exit_instance.text = "Переход?"
+		exit_instance.yes_button_text = "Переход"
+		exit_instance.no_button_text = "Отмена"
 		get_tree().root.add_child(exit_instance)
 		exit_instance.yes_button_pressed.connect(change_scene)
 	else:

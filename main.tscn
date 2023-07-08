@@ -179,8 +179,8 @@ custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 focus_mode = 0
 theme_override_font_sizes/font_size = 24
-text = "№4
-Exit"
+text = "Кнопка
+№4"
 script = ExtResource("1_wtym7")
 
 [node name="ChangeSceneButton" type="Button" parent="GridContainer"]
@@ -191,8 +191,8 @@ theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_5wh5u")
 theme_override_styles/hover = SubResource("StyleBoxFlat_renkg")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_t6c1t")
-text = "№1
-Change Scene"
+text = "Кнопка
+№1"
 script = ExtResource("2_iaymu")
 SCENE_TO_CHANGE = 1
 is_dialog_need = true
@@ -205,8 +205,8 @@ theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_t2fjm")
 theme_override_styles/hover = SubResource("StyleBoxFlat_psfsj")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_nrehf")
-text = "№3
-Shuffle"
+text = "Кнопка
+№3"
 script = ExtResource("2_677ww")
 
 [node name="UIEffectButton" type="Button" parent="GridContainer" node_paths=PackedStringArray("glitch_effect")]
@@ -217,8 +217,8 @@ theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_f7x3q")
 theme_override_styles/hover = SubResource("StyleBoxFlat_4sit2")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_7ch17")
-text = "№2
-UI Effect"
+text = "Кнопка
+№2"
 script = ExtResource("5_j56rl")
 glitch_effect = NodePath("../../GlitchEffect")
 
