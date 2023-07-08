@@ -90,6 +90,11 @@ max_value = 10.0
 step = 0.1
 value = 1.0
 
+[node name="SpeedValueLabel" type="Label" parent="UILayer/UI/VBoxContainer/SpeedContainer"]
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+text = "0.0"
+
 [node name="RadiusContainer" type="HBoxContainer" parent="UILayer/UI/VBoxContainer"]
 layout_mode = 2
 
@@ -104,6 +109,11 @@ size_flags_vertical = 4
 max_value = 6.0
 step = 0.1
 value = 5.0
+
+[node name="RadiusValueLabel" type="Label" parent="UILayer/UI/VBoxContainer/RadiusContainer"]
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+text = "0.0"
 
 [connection signal="value_changed" from="UILayer/UI/VBoxContainer/SpeedContainer/SpeedHSlider" to="UILayer/UI" method="_on_speed_h_slider_value_changed"]
 [connection signal="value_changed" from="UILayer/UI/VBoxContainer/RadiusContainer/RadiusHSlider" to="UILayer/UI" method="_on_radius_h_slider_value_changed"]
