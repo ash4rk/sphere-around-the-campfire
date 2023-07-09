@@ -47,7 +47,7 @@ current = true
 
 [node name="UILayer" parent="." instance=ExtResource("4_1vl6y")]
 
-[node name="UI" parent="UILayer" index="0" node_paths=PackedStringArray("sphere")]
-sphere = NodePath("../../Sphere")
+[node name="UI" parent="UILayer" index="0" node_paths=PackedStringArray("_sphere")]
+_sphere = NodePath("../../Sphere")
 
 [editable path="UILayer"]

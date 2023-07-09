@@ -1,12 +1,12 @@
 extends Node2D
 
-@onready var base_sparkles = $BaseSparlkes
-@onready var fading_stars = $FadingStars
+@onready var _base_sparkles = $BaseSparlkes
+@onready var _fading_stars = $FadingStars
 
 func _ready():
-	base_sparkles.emitting = true
-	fading_stars.emitting = true
+	_base_sparkles.emitting = true
+	_fading_stars.emitting = true
 
 func _process(_delta):
-	if (!base_sparkles.emitting and !fading_stars.emitting):
+	if (!_base_sparkles.emitting and !_fading_stars.emitting):
 		self.queue_free()
