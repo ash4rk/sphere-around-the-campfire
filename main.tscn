@@ -1,13 +1,13 @@
-[gd_scene load_steps=21 format=3 uid="uid://bn8flcsoje6e6"]
+[gd_scene load_steps=18 format=3 uid="uid://bn8flcsoje6e6"]
 
 [ext_resource type="Shader" path="res://assets/main_bg.gdshader" id="1_ecbd2"]
 [ext_resource type="Script" path="res://scenes/menu/exit_button.gd" id="1_wtym7"]
 [ext_resource type="Theme" uid="uid://cqx7a2for4r1c" path="res://assets/theme.tres" id="1_ye73f"]
 [ext_resource type="Script" path="res://scenes/menu/shuffle_button.gd" id="2_677ww"]
 [ext_resource type="Script" path="res://scenes/menu/change_scene_button.gd" id="2_iaymu"]
-[ext_resource type="Script" path="res://scenes/menu/ui_effect_button.gd" id="5_j56rl"]
 [ext_resource type="Shader" path="res://scenes/ui-effects/glitch.gdshader" id="5_m1gtu"]
 [ext_resource type="Script" path="res://scenes/ui-effects/glitch_effect.gd" id="6_j0upb"]
+[ext_resource type="PackedScene" uid="uid://bi4sjqec3uqxf" path="res://scenes/menu/ui_effect_button.tscn" id="7_iiv74"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_diabo"]
 shader = ExtResource("1_ecbd2")
@@ -81,42 +81,6 @@ border_width_top = 4
 border_width_right = 4
 border_width_bottom = 4
 border_color = Color(0.027451, 0.113725, 0.278431, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f7x3q"]
-bg_color = Color(0.179643, 0.49407, 0.141306, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(0.0470588, 0.180392, 0.0313726, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4sit2"]
-bg_color = Color(0.180392, 0.494118, 0.141176, 0.47451)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(0.0470588, 0.180392, 0.0313726, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ch17"]
-bg_color = Color(0.0627451, 0.215686, 0.0431373, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(0.0470588, 0.180392, 0.0313726, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
@@ -209,18 +173,12 @@ text = "Кнопка
 №3"
 script = ExtResource("2_677ww")
 
-[node name="UIEffectButton" type="Button" parent="GridContainer" node_paths=PackedStringArray("glitch_effect")]
-custom_minimum_size = Vector2(200, 200)
+[node name="UIEffectButton" parent="GridContainer" node_paths=PackedStringArray("_glitch_effect") instance=ExtResource("7_iiv74")]
 layout_mode = 2
-focus_mode = 0
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_f7x3q")
-theme_override_styles/hover = SubResource("StyleBoxFlat_4sit2")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_7ch17")
-text = "Кнопка
-№2"
-script = ExtResource("5_j56rl")
-glitch_effect = NodePath("../../GlitchEffect")
+_glitch_effect = NodePath("../../GlitchEffect")
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="."]
+copy_mode = 2
 
 [node name="GlitchEffect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_5cyg6")
@@ -239,4 +197,3 @@ environment = SubResource("Environment_h21vd")
 [connection signal="pressed" from="GridContainer/ExitButton" to="GridContainer/ExitButton" method="_on_pressed"]
 [connection signal="pressed" from="GridContainer/ChangeSceneButton" to="GridContainer/ChangeSceneButton" method="_on_pressed"]
 [connection signal="pressed" from="GridContainer/ShuffleButton" to="GridContainer/ShuffleButton" method="_on_pressed"]
-[connection signal="pressed" from="GridContainer/UIEffectButton" to="GridContainer/UIEffectButton" method="_on_pressed"]
