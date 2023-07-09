@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bi4sjqec3uqxf"]
+[gd_scene load_steps=10 format=3 uid="uid://bi4sjqec3uqxf"]
 
 [ext_resource type="Script" path="res://scenes/menu/ui_effect_button.gd" id="1_ro3by"]
 [ext_resource type="Shader" path="res://scenes/ui-effects/ripple.gdshader" id="2_2h14h"]
+[ext_resource type="Shader" path="res://scenes/ui-effects/stroke_glow.gdshader" id="3_4mgm4"]
+[ext_resource type="Texture2D" uid="uid://c0bxr615sjjmn" path="res://assets/stroke_button_mask.png" id="4_nkjk1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f7x3q"]
 bg_color = Color(0.179643, 0.49407, 0.141306, 1)
@@ -46,6 +48,11 @@ shader_parameter/distortion_force = 0.025
 shader_parameter/size = -0.1
 shader_parameter/thickness = 0.06
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kvcu1"]
+shader = ExtResource("3_4mgm4")
+shader_parameter/transparency = 0.0
+shader_parameter/mask = ExtResource("4_nkjk1")
+
 [node name="UIEffectButton" type="Button"]
 custom_minimum_size = Vector2(200, 200)
 focus_mode = 0
@@ -59,6 +66,16 @@ script = ExtResource("1_ro3by")
 
 [node name="RippleEffect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_h04fw")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="StrokeGlowEffect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_kvcu1")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

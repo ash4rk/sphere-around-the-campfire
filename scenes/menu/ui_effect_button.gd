@@ -2,12 +2,14 @@ extends Button
 
 var _SPARKLES_SCENE: PackedScene = preload("res://scenes/ui-effects/sparkles.tscn")
 @onready var _ripple_effect: ColorRect = $RippleEffect
+@onready var _stroke_glow_effect: ColorRect = $StrokeGlowEffect
 @export var _glitch_effect: ColorRect
 
 func _on_pressed():
 	_glitch_effect._emit_glitch_effect()
 	_emit_sparkles_effect()
 	_emit_ripple_effect()
+	_emit_stroke_glow_effect()
 
 func _emit_sparkles_effect():
 	var sparkles_instance = _SPARKLES_SCENE.instantiate()
@@ -31,3 +33,10 @@ func _get_normalized_mouse_position() -> Vector2:
 	var yNormalized = mousePos.y / buttonRect.size.y
 
 	return Vector2(xNormalized, yNormalized)
+	
+func _emit_stroke_glow_effect():
+	var tween = get_tree().create_tween();
+	tween.tween_method(_set_stroke_effect_transperancy, 1.0, 0.0, 0.4).set_ease(Tween.EASE_OUT)
+
+func _set_stroke_effect_transperancy(value: float):
+	_stroke_glow_effect.material.set_shader_parameter("transparency", value)
